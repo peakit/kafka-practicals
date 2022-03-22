@@ -1,0 +1,19 @@
+Starting Kafka
+--------------
+- Start zookeeper: $> zookeeper-server-start.sh /opt/kafka_2.13-3.1.0/config/zookeeper.properties
+- Start kafka: $> kafka-server-start.sh /opt/kafka_2.13-3.1.0/config/server.properties
+
+Topics
+------
+List: $> kafka-topics.sh --bootstrap-server localhost:9092 --list
+Create: $> kafka-topics.sh --bootstrap-server localhost:9092 --topic first_topic --create [--partitions n --replication-factor m]
+Describe: $> kafka-topics.sh --bootstrap-server localhost:9092 --topic first_topic --describe
+
+Producer: $> kafka-console-producer.sh --bootstrap-server localhost:9092 --topic first_topic
+Consumer: $> kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic first_topic
+
+Consumer group: $> kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic first_topic --group my-app
+(one of them receives the message and --from-beginning is only from the already read offset and never from true beginning)
+
+
+
